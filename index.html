@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>張名賢 Hsianoda | 個人職涯閱歷集 Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-dark: #0F172A;
+            --brand-blue: #3B82F6;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F8FAFC;
+            scroll-behavior: smooth;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* 保留上方核心專長的預覽樣式 */
+        .img-doc-preview {
+            background-color: #E2E8F0;
+            border: 2px dashed #CBD5E1;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 60px;
+        }
+        .img-doc-preview:hover {
+            border-color: #3B82F6;
+            background-color: #EFF6FF;
+            transform: translateY(-2px);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid #3B82F6;
+        }
+        /* 修改後的工作經歷縮圖卡片：純展示用 */
+        .thumb-card-static {
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #F8FAFC;
+        }
+        .thumb-img-placeholder {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #EDF2F7;
+            color: #A0AEC0;
+            overflow: hidden;
+        }
+        .thumb-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media (min-width: 1024px) {
+            .avatar-circle {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">H</div>
+                <span class="font-bold tracking-tight text-slate-900">張名賢 | 個人職涯閱歷集</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-blue-600 transition">關於我</a>
+                <a href="#expertise" class="hover:text-blue-600 transition">核心專長</a>
+                <a href="#experience" class="hover:text-blue-600 transition">實戰經歷</a>
+                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">聯繫洽談</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="about" class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-8 uppercase tracking-wider">
+                Senior Technical Executive
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+                <div class="avatar-circle">
+                    <!-- 大頭照路徑可替換此處 -->
+                    <img src="images/avatar.jpg" alt="張名賢 Hsianoda" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <i class="fas fa-user-tie text-4xl text-slate-400" style="display:none;"></i>
+                </div>
+                <div>
+                    <h1 class="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                        具技術與管理經驗<br>
+                        <span class="gradient-text">整合專案管理的專家</span>
+                    </h1>
+                </div>
+            </div>
+
+            <p class="text-xl text-slate-600 leading-relaxed mb-8 max-w-3xl">
+                <b>17 年</b>跨領域整合經驗。從<b>視覺設計UI/UX</b>、到主導<b>大型專案執行</b>與<b>團隊整合</b>。我是技術與需求間的溝通橋梁，將專案化繁為簡，產出高品質成果的整合者。
+            </p>
+            
+            <div class="flex flex-wrap gap-6 border-t border-slate-200 pt-8">
+                <div class="flex items-center space-x-2 text-slate-500">
+                    <i class="fas fa-code text-blue-500"></i>
+                    <span class="font-medium text-sm">開發執行背景</span>
+                </div>
+                <div class="flex items-center space-x-2 text-slate-500">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    <span class="font-medium text-sm">17+ 年實務經歷</span>
+                </div>
+                <div class="flex items-center space-x-2 text-slate-500">
+                    <i class="fas fa-certificate text-amber-500"></i>
+                    <span class="font-medium text-sm">TOPSTEP 認證交易員</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Expertise Section (保留此處可點擊預覽功能) -->
+    <section id="expertise" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 tracking-tight">核心專長能力</h2>
+                <p class="text-slate-400">從開發執行到高階管理，具備完整「技術轉譯」經驗</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1. 技術背景 -->
+                <div class="p-6 rounded-3xl bg-slate-800 border border-slate-700 hover:border-blue-500 transition-all flex flex-col">
+                    <i class="fas fa-terminal text-2xl text-blue-400 mb-6"></i>
+                    <h3 class="text-lg font-bold mb-4">技術背景與轉譯實績</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">深耕網頁語法與 UI/UX 客製化。透過手寫語法解決平台限制，實現高度複雜的視覺互動。</p>
+                    <div class="img-doc-preview rounded-xl p-3 cursor-pointer mt-auto border-blue-500/30 bg-blue-500/5 hover:bg-blue-500/10 flex items-center justify-center" onclick="openLightbox('RWD 產品開發實績', 'images/rwd_portfolio.jpg')">
+                        <div class="text-blue-400 text-[10px] font-bold italic">
+                            <i class="fas fa-laptop-code mr-2"></i> 查看開發作品集
+                        </div>
+                    </div>
+                </div>
+                <!-- 2. 組織治理 -->
+                <div class="p-6 rounded-3xl bg-slate-800 border border-slate-700 hover:border-blue-500 transition-all flex flex-col">
+                    <i class="fas fa-sitemap text-2xl text-green-400 mb-6"></i>
+                    <h3 class="text-lg font-bold mb-4">組織治理與 SOP 落地</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">將開發經驗轉化為 SOP，建立透明管控體系，確保大規模專案交付效率提升 30%。</p>
+                    <div class="img-doc-preview rounded-xl p-3 cursor-pointer mt-auto border-green-500/30 bg-green-500/5 hover:bg-green-500/10 flex items-center justify-center" onclick="openLightbox('專案管理流程 SOP', 'images/project_sop.jpg')">
+                        <div class="text-green-400 text-[10px] font-bold italic">
+                            <i class="fas fa-project-diagram mr-2"></i> 查看管理 SOP
+                        </div>
+                    </div>
+                </div>
+                <!-- 3. AI 轉型 -->
+                <div class="p-6 rounded-3xl bg-slate-800 border border-slate-700 hover:border-blue-500 transition-all flex flex-col">
+                    <i class="fas fa-bolt-lightning text-2xl text-purple-400 mb-6"></i>
+                    <h3 class="text-lg font-bold mb-4">AI 轉型與策略佈局</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">親自主導專案工作流 GPT 提示詞。將 AI 技術優化產出效率與模組化工作流程。</p>
+                    <div class="img-doc-preview rounded-xl p-3 cursor-pointer mt-auto border-purple-500/30 bg-purple-500/5 hover:bg-purple-500/10 flex items-center justify-center" onclick="openLightbox('AI GPT 提示詞架構', 'images/prompt.jpg')">
+                        <div class="text-purple-400 text-[10px] font-bold italic">
+                            <i class="fas fa-robot mr-2"></i> 查看 AI 提示詞架構
+                        </div>
+                    </div>
+                </div>
+                <!-- 4. TOPSTEP 風控 -->
+                <div class="p-6 rounded-3xl bg-slate-800 border border-slate-700 hover:border-blue-500 transition-all flex flex-col">
+                    <i class="fas fa-chart-line text-2xl text-amber-400 mb-6"></i>
+                    <h3 class="text-lg font-bold mb-4">金融級風控與交易員認證</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">具備 7 年 TOPSTEP 實操經驗。將金融市場的嚴謹風險管理應用於技術專案，確保系統高穩定性。</p>
+                    <div class="img-doc-preview rounded-xl p-3 cursor-pointer mt-auto border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/10 flex items-center justify-center" onclick="openLightbox('TOPSTEP 專業交易員認證', 'images/topstep.jpg')">
+                        <div class="text-amber-500 text-[10px] font-bold italic">
+                            <i class="fas fa-award mr-2"></i> 查看 TOPSTEP 證書
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-slate-900 mb-16 text-center">職涯實戰經歷</h2>
+            
+            <div class="relative border-l-2 border-slate-200 ml-4 space-y-20">
+                
+                <!-- ITPAC -->
+                <div class="relative pl-8">
+                    <div class="timeline-dot"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-slate-900">技術長 CTO</h3>
+                        <span class="text-sm font-bold text-blue-600 mono">2017/09 – 2026/01</span>
+                    </div>
+                    <div class="text-slate-500 font-medium mb-4 italic text-sm">社團法人中華民國網路拓展貿易協會</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">主導核心 RWD 產品開發商業化，從零打造協會核心架構，輔導台灣中小企業拓展產品曝光外銷。導入 AI 提示詞提效工作效率與標準化 SOP 管理體系，確保開發進度與品質的透明管控，實現技術與商務的高度對接。</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/RWD專案成果.jpg" alt="RWD專案成果" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-robot text-4xl text-purple-200" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t flex justify-between items-center">
+                                <span>RWD 產品開發實績</span>
+                            </div>
+                        </div>
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/專案流程SOP.jpg" alt="專案流程SOP SOP" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-project-diagram text-4xl text-green-200" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t flex justify-between items-center">
+                                <span>標準化專案管理 SOP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 海棠設計公司 -->
+                <div class="relative pl-8">
+                    <div class="timeline-dot border-slate-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-slate-900">資深專案經理</h3>
+                        <span class="text-sm font-bold text-slate-400 mono">2016/12 – 2017/02</span>
+                    </div>
+                    <div class="text-slate-500 font-medium mb-4 italic text-sm">海棠設計有限公司</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">發揮「危機管理」與「問題定義」專長，成功於一個月內將兩件延宕近半年的專案並完成結案：</p>
+                    <ul class="list-disc list-inside text-[13px] text-slate-500 space-y-2 mb-6 ml-2">
+                        <li><b>華泰名品城官方網站：</b>重新梳理業主需求與技術限制，達成溝通共識並導入執行。</li>
+                        <li><b>奧麗雅生醫官方網站：</b>對接專案執行人員，確認解決方向後速效推動上線。</li>
+                    </ul>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/gloria-outlets.jpg" alt="華泰名品城官方網站" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-shopping-bag text-4xl text-blue-100" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">華泰名品城官方網站</div>
+                        </div>
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/oria.jpg" alt="奧麗雅生醫官方網站" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-flask text-4xl text-emerald-100" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">奧麗雅生醫官方網站</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 有新科技顧問 -->
+                <div class="relative pl-8">
+                    <div class="timeline-dot border-slate-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-slate-900">資深專案經理 / 開發實作</h3>
+                        <span class="text-sm font-bold text-slate-400 mono">2012/07 – 2016/12</span>
+                    </div>
+                    <div class="text-slate-500 font-medium mb-4 italic text-sm">有新科技顧問股份有限公司</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600 mb-6">
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                            <span class="font-bold block mb-1 text-blue-700">GNJOY 格雷維蒂遊戲平台</span>
+                            主導整體規畫與執行，在極限的 2 個月工期內，與程式人員緊密配合完成高流量平台建置。
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                            <span class="font-bold block mb-1 text-blue-700">Vanger 購物網站</span>
+                            運用<b>客製化 Div+CSS</b> 解決開店123平台的標籤限制，在受限的系統框架下完美呈現客製化視覺風格。
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/gnjoy.jpg" alt="GNJOY遊戲平台規畫建置" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-gamepad text-4xl text-orange-100" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">GNJOY遊戲平台規畫建置</div>
+                        </div>
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/vanger.jpg" alt="Vanger購物網站突破平台限制" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-laptop-code text-4xl text-blue-200" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t flex justify-between items-center">
+                                <span>Vanger購物網站突破平台限制</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 資拓宏宇 (IISI) -->
+                <div class="relative pl-8">
+                    <div class="timeline-dot border-slate-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-slate-900">系統UI/UX設計 & 專案管理</h3>
+                        <span class="text-sm font-bold text-slate-400 mono">2011/03 – 2012/06</span>
+                    </div>
+                    <div class="text-slate-500 font-medium mb-4 italic text-sm">資拓宏宇國際有限公司</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">負責政府大型系統的視覺設計優化與介面管控，作品榮獲國家級獎項肯定：</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded text-[10px] font-bold">政府服務品質獎</span>
+                        <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px] font-bold">資訊月百大創新產品獎</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/disaster-web.jpg" alt="防災資訊服務網視覺優化" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-house-damage text-4xl text-red-100" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">防災資訊服務網視覺優化</div>
+                        </div>
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/water-app.jpg" alt="行動水情 APP 介面設計" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-tint text-4xl text-blue-300" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">行動水情 APP 介面設計</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 環資國際有限公司 -->
+                <div class="relative pl-8">
+                    <div class="timeline-dot border-slate-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-slate-900">網站介面規劃 / 數據視覺化</h3>
+                        <span class="text-sm font-bold text-slate-400 mono">2008/11 – 2011/03</span>
+                    </div>
+                    <div class="text-slate-500 font-medium mb-4 italic text-sm">環資國際有限公司</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">主導行政院環保署等政府機關之環境監控系統介面設計。將複雜的感測數據轉化為直觀的圖表呈現，負責多項大型環境管理平台之使用者行為流程設計。</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/epa-monitor.jpg" alt="環保署台灣河川流域圖監控平台" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-chart-area text-4xl text-teal-200" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">環保署台灣河川流域圖監控平台</div>
+                        </div>
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/gis-ui.jpg" alt="環保署台灣節能減碳簽署地圖" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-map-marked-alt text-4xl text-teal-100" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">環保署台灣節能減碳簽署地圖</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 愛爾達科技有限公司 -->
+                <div class="relative pl-8">
+                    <div class="timeline-dot border-slate-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                        <h3 class="text-xl font-bold text-slate-900">UI/UX & 互動視覺設計師</h3>
+                        <span class="text-sm font-bold text-slate-400 mono">2008/04 – 2008/07</span>
+                    </div>
+                    <div class="text-slate-500 font-medium mb-4 italic text-sm">愛爾達科技股份有限公司</div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">執行「我的 E 政府」、「HiNet 中華電信色情守門員」等大型專案 UI/UX 設計。</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/e_gov.jpg" alt="我的E政府" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-tv text-4xl text-red-300" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">我的E政府</div>
+                        </div>
+                        <div class="thumb-card-static">
+                            <div class="thumb-img-placeholder">
+                                <img src="images/hinet.jpg" alt="HiNet色情守門員" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <i class="fas fa-running text-4xl text-blue-300" style="display:none;"></i>
+                            </div>
+                            <div class="p-2 bg-white text-[11px] font-bold text-slate-700 border-t">HiNet色情守門員</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 pt-20 pb-10 text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 italic">"Bridging Technical Excellence and Business Strategy."</h2>
+            <!-- 新增文字區塊 -->
+            <p class="text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                如果您正在尋找一位能平衡「技術」與「管理」的領導者，歡迎透過電話或電子郵件聯繫我，討論合作的可能性。
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12 mb-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-phone text-blue-400"></i>
+                    <a href="tel:0903338886" class="mono hover:text-blue-400 transition">0903-338-886</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-envelope text-blue-400"></i>
+                    <a href="mailto:hsianoda@gmail.com" class="mono hover:text-blue-400 transition">hsianoda@gmail.com</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-10 text-slate-500 text-sm">
+                © 張名賢 Hsianoda | 個人職涯閱歷集 Portfolio
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox (僅保留用於核心專長區域的點擊預覽) -->
+    <div id="lightbox" class="fixed inset-0 bg-slate-900/95 z-[100] hidden flex items-center justify-center p-6" onclick="closeLightbox()">
+        <div class="max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+            <div class="p-4 border-b flex justify-between items-center">
+                <h3 id="lb-title" class="font-bold text-slate-800">附件預覽</h3>
+                <button onclick="closeLightbox()" class="text-slate-400 hover:text-red-500 text-2xl">&times;</button>
+            </div>
+            <div class="p-10 bg-slate-50 text-center min-h-[300px] flex flex-col items-center justify-center">
+                <!-- 預覽容器：如果路徑正確會顯示圖片，否則顯示圖示 -->
+                <div id="lb-image-container" class="mb-4 w-full flex justify-center">
+                    <img id="lb-image" src="" alt="預覽圖" class="max-h-[60vh] object-contain hidden">
+                    <i id="lb-icon" class="fas fa-file-invoice-dollar text-7xl text-slate-200"></i>
+                </div>
+                <div class="text-xs text-slate-400 italic">[ 點擊背景可關閉預覽 ]</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(title, imgPath) {
+            const lb = document.getElementById('lightbox');
+            const lbIcon = document.getElementById('lb-icon');
+            const lbImage = document.getElementById('lb-image');
+            
+            // 處理圖示邏輯
+            if (imgPath.includes('TOPSTEP')) {
+                lbIcon.className = 'fas fa-award text-7xl text-amber-400 mb-4';
+            } else if (imgPath.includes('SOP')) {
+                lbIcon.className = 'fas fa-project-diagram text-7xl text-green-400 mb-4';
+            } else if (imgPath.includes('成果')) {
+                lbIcon.className = 'fas fa-laptop-code text-7xl text-blue-400 mb-4';
+            } else if (imgPath.includes('GPT')) {
+                lbIcon.className = 'fas fa-robot text-7xl text-purple-400 mb-4';
+            } else {
+                lbIcon.className = 'fas fa-file-invoice-dollar text-7xl text-slate-200 mb-4';
+            }
+
+            // 處理圖片顯示邏輯
+            if (imgPath && !imgPath.startsWith('filename')) {
+                lbImage.src = imgPath;
+                lbImage.classList.remove('hidden');
+                lbIcon.classList.add('hidden');
+                
+                // 圖片讀取失敗時回退到圖示
+                lbImage.onerror = function() {
+                    lbImage.classList.add('hidden');
+                    lbIcon.classList.remove('hidden');
+                };
+            } else {
+                lbImage.classList.add('hidden');
+                lbIcon.classList.remove('hidden');
+            }
+
+            document.getElementById('lb-title').innerText = title;
+            lb.classList.remove('hidden');
+            lb.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
