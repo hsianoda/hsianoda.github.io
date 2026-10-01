@@ -114,6 +114,7 @@
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
                 <a href="#about" class="hover:text-blue-600 transition">關於我</a>
                 <a href="#expertise" class="hover:text-blue-600 transition">核心專長</a>
+                <a href="#projects" class="hover:text-blue-600 transition">精選專案</a>
                 <a href="#experience" class="hover:text-blue-600 transition">實戰經歷</a>
                 <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">聯繫洽談</a>
             </div>
@@ -124,7 +125,7 @@
     <header id="about" class="pt-32 pb-20 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-8 uppercase tracking-wider">
-                Senior Technical Executive
+                Senior Technical Executive / Full-Stack Product Architect
             </div>
             
             <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
@@ -214,6 +215,95 @@
                             <i class="fas fa-award mr-2"></i> 查看 TOPSTEP 證書
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精選專案與創新產品 (Featured Projects) -->
+    <section id="projects" class="py-24 px-6 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-3 uppercase tracking-wider">
+                    Featured Projects & Products
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">精選專案與自研產品</h2>
+                <p class="text-slate-500 text-sm mt-2">結合金融量化邏輯、UI/UX 體驗與完整產品交付的實作成果</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- 專案 1: TradingView 五線譜量化交易模型 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full text-xs font-semibold">FinTech & 交易工具</span>
+                        <span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full text-xs font-semibold">Pine Script 量化模型</span>
+                        <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full text-xs font-semibold">實盤運行中</span>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">
+                        動態五線譜交易指標
+                    </h3>
+                    <p class="text-blue-600 font-medium text-xs mono mb-6">TradingView 自研量化指標 ｜ 策略邏輯設計、程式開發與實盤風控驗證</p>
+
+                    <div class="text-slate-600 text-sm leading-relaxed mb-6">
+                        <p class="mb-3">
+                            <strong>專案介紹：</strong>針對所有金融商品(如：加密貨幣、期貨等)高波動市場開發的自研指標。利用突破策略計算，轉化為淺顯易懂的五線標示並進行交易計畫，避免在極端行情下過度FOMO。
+                        </p>
+                    </div>
+
+                    <!-- 圖片展示與另開視窗外部連結 (改為 target="_blank") -->
+                    <a href="https://tw.tradingview.com/script/H43seu66/" target="_blank" rel="noopener noreferrer" class="thumb-card-static block group cursor-pointer hover:border-blue-400 transition-colors">
+                        <div class="thumb-img-placeholder relative">
+                            <img src="images/tradingview_model.jpg" alt="TradingView 動態五線譜交易指標" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="hidden flex-col items-center justify-center p-6 text-center">
+                                <i class="fas fa-chart-area text-5xl text-blue-300 mb-3 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-xs text-slate-400">前往瀏覽 TradingView 動態五線譜交易指標</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white text-xs font-bold text-slate-700 border-t flex justify-between items-center group-hover:text-blue-600 transition">
+                            <span>TradingView 動態五線譜交易指標實盤介面與訊號觸發</span>
+                            <span class="text-blue-500 text-[11px] font-normal flex items-center gap-1">
+                                開啟外部連結 <i class="fas fa-arrow-up-right-from-square"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 專案 2: FUFU ELF 原創數位 IP 全鏈路商業化 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full text-xs font-semibold">數位資產 IP 設計</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full text-xs font-semibold">建模與視覺</span>
+                        <span class="bg-pink-100 text-pink-700 px-2.5 py-1 rounded-full text-xs font-semibold">獨立產品上架</span>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">
+                        FUFU 原創療癒系數位 IP ｜ 獨立設計與商品化發行
+                    </h3>
+                    <p class="text-purple-600 font-medium text-xs mono mb-6">品牌世界觀、角色建模、形象官網至 LINE 官方貼圖商店發行</p>
+
+                    <div class="text-slate-600 text-sm leading-relaxed mb-6">
+                        <p class="mb-3">
+                            <strong>專案介紹：</strong>以「情緒療癒」為概念的個人原創數位 IP。從角色設定、建模，到架設專屬品牌形象網站與 LINE 官方貼圖審查上架，全程由個人獨立完成，體現完整的產品推動與設計落地能力。
+                        </p>
+                    </div>
+
+                    <!-- 圖片展示與另開視窗外部連結 (改為 target="_blank") -->
+                    <a href="https://fufuelf.com/" target="_blank" rel="noopener noreferrer" class="thumb-card-static block group cursor-pointer hover:border-purple-400 transition-colors">
+                        <div class="thumb-img-placeholder relative">
+                            <img src="images/fufu_showcase.jpg" alt="FUFU ELF 數位 IP 孵化" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="hidden flex-col items-center justify-center p-6 text-center">
+                                <i class="fas fa-palette text-5xl text-purple-300 mb-3 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-xs text-slate-400">前往瀏覽 FUFU 品牌官方網站</span>
+                            </div>
+                        </div>
+                        <div class="p-2 bg-white text-xs font-bold text-slate-700 border-t flex justify-between items-center group-hover:text-purple-600 transition">
+                            <span>FUFU 視覺設計、品牌官網與 LINE 貼圖商業發行</span>
+                            <span class="text-purple-500 text-[11px] font-normal flex items-center gap-1">
+                                開啟外部連結 <i class="fas fa-arrow-up-right-from-square"></i>
+                            </span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -479,6 +569,10 @@
                 lbIcon.className = 'fas fa-laptop-code text-7xl text-blue-400 mb-4';
             } else if (imgPath.includes('GPT')) {
                 lbIcon.className = 'fas fa-robot text-7xl text-purple-400 mb-4';
+            } else if (imgPath.includes('tradingview')) {
+                lbIcon.className = 'fas fa-chart-line text-7xl text-blue-400 mb-4';
+            } else if (imgPath.includes('fufu')) {
+                lbIcon.className = 'fas fa-palette text-7xl text-purple-400 mb-4';
             } else {
                 lbIcon.className = 'fas fa-file-invoice-dollar text-7xl text-slate-200 mb-4';
             }
