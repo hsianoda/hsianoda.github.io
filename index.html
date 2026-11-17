@@ -123,7 +123,7 @@
   </script>
 
   <style>
-    /* ==================== 雙主題設計系統變數（預設：機構級金融商務白） ==================== */
+    /* ==================== 雙主題設計系統變數（預設：亮色） ==================== */
     :root {
       --bg-page: #F4F6F9;
       --bg-panel: rgba(255, 255, 255, 0.94);
@@ -1578,7 +1578,7 @@
       const htmlEl = document.documentElement;
       const isDark = htmlEl.classList.toggle('dark');
       updateThemeToggleUI(isDark);
-      showToast(isDark ? '已切換至「深色模式（夜間實盤看盤）」' : '已切換至「亮色模式（機構級金融商務白）」');
+      showToast(isDark ? '已切換至「深色模式」' : '已切換至「亮色模式」');
     }
 
     function updateThemeToggleUI(isDark) {
