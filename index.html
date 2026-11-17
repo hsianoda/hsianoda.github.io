@@ -123,7 +123,7 @@
   </script>
 
   <style>
-    /* ==================== 雙主題設計系統變數（預設：亮色） ==================== */
+    /* ==================== 雙主題設計系統變數（預設：機構級金融商務白） ==================== */
     :root {
       --bg-page: #F4F6F9;
       --bg-panel: rgba(255, 255, 255, 0.94);
@@ -308,7 +308,7 @@
 
         <!-- 寫實風格客製化 SVG 虛擬人物頭像 -->
         <div class="flex flex-col items-center text-center">
-          <div id="avatar-ring" class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#3B6998] via-[#60A5FA] to-[#D97706] dark:from-sky-500 dark:via-slate-600 dark:to-amber-500 border-2 border-transparent transition-all duration-300 shadow-lg shadow-slate-200/90 dark:shadow-sky-950/50">
+          <div id="avatar-ring" onclick="scrollToChat()" title="點擊前往線上互動對話" class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-[#3B6998] via-[#60A5FA] to-[#D97706] dark:from-sky-500 dark:via-slate-600 dark:to-amber-500 border-2 border-transparent transition-all duration-300 shadow-lg shadow-slate-200/90 dark:shadow-sky-950/50 cursor-pointer hover:scale-[1.03] active:scale-95">
             <div class="w-full h-full rounded-full bg-[#E0F2FE] dark:bg-[#0F172A] flex items-center justify-center overflow-hidden relative transition-colors duration-300">
               
               <!-- 依張名賢本人照片特徵繪製之寫實光影 SVG 人物 -->
@@ -503,15 +503,15 @@
               </svg>
 
             </div>
-            <!-- 右下角實戰認證徽章 -->
-            <div class="absolute -bottom-1 right-0 bg-[#334155] dark:bg-[#0B1120] border border-amber-400/70 text-amber-300 dark:text-amber-400 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              CTO × 交易員
+            <!-- 底部互動引導徽章 -->
+            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#334155] dark:bg-[#0B1120] border border-amber-400/80 text-amber-300 dark:text-amber-400 text-[11px] font-bold px-3 py-0.5 rounded-full shadow-md flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              可線上互動與我聊聊
             </div>
           </div>
 
           <!-- 姓名與核心定位標題 -->
-          <h1 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-white mt-3.5 tracking-tight">
+          <h1 class="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-white mt-4 tracking-tight">
             張名賢 <span class="text-[#2563EB] dark:text-sky-400 font-bold text-base sm:text-lg ml-1">Hsianoda</span>
           </h1>
           <p class="text-xs sm:text-sm font-bold text-amber-700 dark:text-amber-400/95 mt-1">
@@ -594,26 +594,23 @@
     </aside>
 
     <!-- ==================== 右側欄：結構化互動對話控制台 ==================== -->
-    <section class="w-full lg:w-[63%] bg-white/95 dark:bg-[#111827]/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 rounded-2xl flex flex-col shadow-xl shadow-slate-200/70 dark:shadow-2xl min-h-[560px] lg:h-full overflow-hidden transition-colors duration-300">
+    <section id="chat-section" class="w-full lg:w-[63%] bg-white/95 dark:bg-[#111827]/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 rounded-2xl flex flex-col shadow-xl shadow-slate-200/70 dark:shadow-2xl min-h-[560px] lg:h-full overflow-hidden transition-all duration-300">
       
       <!-- 對話區頂部資訊列（含日間商務 / 夜間實盤一鍵主題切換按鈕） -->
       <div class="px-4 sm:px-6 py-3.5 bg-slate-50/90 dark:bg-[#0B1120]/75 border-b border-slate-200 dark:border-slate-800/90 flex items-center justify-between gap-2 shrink-0 transition-colors duration-300">
         <div class="flex items-center gap-2.5 min-w-0">
           <span class="w-2.5 h-2.5 rounded-full bg-[#2563EB] dark:bg-sky-400 shrink-0"></span>
           <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">與名賢線上聊聊</span>
-          <span class="hidden xl:inline-block px-2 py-0.5 rounded text-[11px] bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700/80 font-medium">過往經歷與實盤思維整理</span>
         </div>
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <!-- 一頁版履歷超連結（另開新視窗前往 classic.html） -->
-          <a href="https://hsianoda.github.io/classic.html" target="_blank" rel="noopener noreferrer" title="另開新視窗檢視傳統一頁長條版履歷" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-white hover:bg-blue-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-[#1E3A8A] dark:text-sky-300 border border-slate-300 dark:border-sky-500/40 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs">
-            <span>📄 一頁版履歷</span>
-            <svg class="w-3 h-3 opacity-80 hidden sm:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-            </svg>
-          </a>
-
           <button onclick="askRandomQuestion()" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 dark:bg-amber-500/15 dark:hover:bg-amber-500/25 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-500/40 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs">
             <span>🎲 隨機提問</span>
+          </button>
+
+          <button onclick="resetChat()" title="重新開始對話" class="p-1.5 rounded-xl bg-white hover:bg-slate-100 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white border border-slate-200 dark:border-slate-700/80 transition-colors cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
           </button>
 
           <!-- 切換主題左右撥動開關 -->
@@ -628,12 +625,6 @@
               <span id="theme-toggle-thumb" class="pointer-events-none absolute left-0.5 inline-block h-5 w-5 transform rounded-full bg-white dark:bg-amber-400 shadow-sm transition-transform duration-300 translate-x-0 dark:translate-x-6"></span>
             </button>
           </div>
-
-          <button onclick="resetChat()" title="重新開始對話" class="p-1.5 rounded-xl bg-white hover:bg-slate-100 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white border border-slate-200 dark:border-slate-700/80 transition-colors cursor-pointer">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-            </svg>
-          </button>
         </div>
       </div>
 
@@ -1177,7 +1168,6 @@
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                   <span>寄信：hsianoda@gmail.com</span>
                 </a>
-                <span class="text-xs text-slate-600 dark:text-slate-400 font-medium">市話：(02) 2732-3597</span>
               </div>
               <div class="text-slate-600 dark:text-slate-400 text-xs">
                 一頁版履歷（傳統長條版）：<a href="https://hsianoda.github.io/classic.html" target="_blank" rel="noopener noreferrer" class="text-[#1E3A8A] dark:text-sky-400 font-semibold underline hover:opacity-80">https://hsianoda.github.io/classic.html</a> ｜ 期望產業：金融投顧及保險業 / 軟體網路
@@ -1990,6 +1980,17 @@
       toastTimeout = setTimeout(() => {
         toast.classList.add('translate-y-24', 'opacity-0');
       }, 3000);
+    }
+
+    // 點擊虛擬頭像時引導捲動至對話框並給予視覺提示
+    function scrollToChat() {
+      const chatSection = document.getElementById('chat-section');
+      if (!chatSection) return;
+      chatSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      chatSection.classList.add('ring-2', 'ring-amber-400', 'dark:ring-sky-400');
+      setTimeout(() => {
+        chatSection.classList.remove('ring-2', 'ring-amber-400', 'dark:ring-sky-400');
+      }, 1200);
     }
 
     function scrollToBottom() {
